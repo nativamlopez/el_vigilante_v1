@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mapa interactivo - Demo</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin="anonymous"
+  />
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <img src="logo.png" alt="Logo" class="logo" />
+    <h1 class="title">Oñangareko Va</h1>
+  </header>
+
+  <!-- Mapa -->
+  <div id="map" aria-label="Mapa Leaflet"></div>
+
+  <!-- Menú desplegable -->
+  <div class="menu-wrap">
+    <button id="menuToggle" class="menu-btn">☰ Opciones</button>
+    <div id="dropdown" class="dropdown" aria-hidden="true">
+      <div class="dropdown-section">
+        <div class="dropdown-title">Fondo del mapa</div>
+        <label class="row"><input type="radio" name="basemap" value="osm" checked> OpenStreetMap</label>
+        <label class="row"><input type="radio" name="basemap" value="sat"> Satélite</label>
+      </div>
+
+      <div class="dropdown-section">
+        <div class="dropdown-title">Capas (Pruebas)</div>
+        <label class="row"><input type="checkbox" id="chkPuntos"> Puntos de Interés</label>
+        <label class="row"><input type="checkbox" id="chkRutas"> Rutas</label>
+      </div>
+
+      <div class="dropdown-section">
+        <div class="dropdown-title">FIRMS, Focos (VIIRS)</div>
+
+        <label class="row">
+          <input type="checkbox" id="chkFirms" checked />
+          <span>Mostrar focos</span>
+        </label>
+
+        <label class="row">
+          <span>Días (1 a 10):</span>
+          <input type="number" id="inpDays" min="1" max="10" value="3" />
+        </label>
+
+        <fieldset class="row">
+        <legend>Sensores VIIRS</legend>
+          <label class="chip"><input type="checkbox" class="sensor" value="VIIRS_SNPP_NRT" checked />SNPP</label>
+          <label class="chip"><input type="checkbox" class="sensor" value="VIIRS_NOAA20_NRT" checked />NOAA20</label>
+          <label class="chip"><input type="checkbox" class="sensor" value="VIIRS_NOAA21_NRT" checked />NOAA21</label>
+        </fieldset>
+
+        <div class="buttons">
+          <button id="btnRefresh" class="action-btn">Actualizar</button>
+        </div>
+
+        <div class="status" id="status">Listo.</div>
+        <div class="note">
+          <b>Auto-actualiza</b> cada 15 min. Respeta el rate-limit de FIRMS.
+        </div>
+
+      </div>
+
+      <div class="dropdown-section">
+        <div class="dropdown-title">Acciones</div>
+        <button class="action-btn" id="btnCentrar">Centrar al ACIE Ñembi Guasu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© 2025 NATIVA | Echo por: Matias Lopez Bertram</p>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- JS propio -->
+  <script src="app.js"></script>
+</body>
+</html>
