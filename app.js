@@ -318,7 +318,7 @@ setInterval(() => {
 // ================================
 
 // Ruta relativa al archivo GeoJSON
-const urlGeoJSON = 'geojson/areas_prot.geojson';
+const urlGeoJSON = 'areas_prot.geojson';
 
 // Estilo del GeoJSON (ajusta colores)
 const estiloGeoJSON = {
@@ -352,3 +352,4 @@ fetch(urlGeoJSON)
     map.fitBounds(capaGeoJSON.getBounds());
   })
   .catch(error => console.error('Error al cargar el GeoJSON:', error));
+
